@@ -1,0 +1,146 @@
+:root {
+  --bg-color: #f4f7f6;
+  --text-color: #333;
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --secondary-color: #f8f9fa;
+  --border-color: #ddd;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary-color);
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-container,
+.process-list-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 95%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+button[type='submit'] {
+  width: 100%;
+}
+
+#reset-button {
+  background-color: #dc3545;
+}
+#reset-button:hover {
+  background-color: #c82333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  text-align: left;
+}
+
+thead {
+  background-color: var(--secondary-color);
+}
+
+.controls-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+#results-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: none;
+}
+
+#gantt-chart {
+  display: flex;
+  height: 50px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.gantt-block {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  border-right: 1px solid #fff;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.gantt-block-idle {
+  background-color: #ccc;
+  color: #333;
+}
