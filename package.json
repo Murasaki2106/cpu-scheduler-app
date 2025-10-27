@@ -1,0 +1,31 @@
+{
+  "name": "cpu-scheduler-app",
+  "version": "1.0.0",
+  "description": "A simple app to visualize CPU scheduling algorithms.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.example.cpuscheduler",
+    "productName": "CPUScheduler",
+    "win": {
+      "target": "nsis"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "style.css",
+      "renderer.js",
+      "scheduler.js"
+    ]
+  }
+}
