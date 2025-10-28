@@ -54,7 +54,14 @@
     </div>
 
     <div class="controls-container">
-      <div class="form-group">
+      <div class="form-group" id="quantum-group">
+        <label for="time-quantum">Time Quantum (for RR)</label>
+        <input type="number" id="time-quantum" value="2" min="1" />
+      </div>
+      <button id="compare-button">📊 Compare All Algorithms</button>
+      <button id="reset-button">Reset</button>
+
+      <div class="form-group" style="display: none">
         <label for="algorithm-select">Select Algorithm</label>
         <select id="algorithm-select">
           <option value="fcfs">First Come, First Serve (FCFS)</option>
@@ -64,22 +71,28 @@
           <option value="rr">Round Robin</option>
         </select>
       </div>
-      <div class="form-group" id="quantum-group" style="display: none">
-        <label for="time-quantum">Time Quantum</label>
-        <input type="number" id="time-quantum" value="2" min="1" />
-      </div>
-      <button id="run-button">Run Simulation</button>
-      <button id="reset-button">Reset</button>
     </div>
 
-    <div id="results-container">
-      <h2>Results</h2>
-      <div id="gantt-chart"></div>
+    <div id="recommendation-box" style="display: none">
+      <h2>🏆 Recommendation</h2>
+      <p>
+        For the **shortest average waiting time**:
+        <strong id="best-wait"></strong>
+      </p>
+      <p>
+        For the **shortest average turnaround time**:
+        <strong id="best-turnaround"></strong>
+      </p>
+    </div>
+
+    <div id="fcfs-results" class="algorithm-results" style="display: none">
+      <h2>First Come, First Serve (FCFS)</h2>
+      <div class="gantt-chart"></div>
       <h3>Statistics</h3>
-      <p id="avg-wait-time"></p>
-      <p id="avg-turnaround-time"></p>
+      <p class="avg-wait-time"></p>
+      <p class="avg-turnaround-time"></p>
       <h3>Process Details</h3>
-      <table id="results-table">
+      <table class="results-table">
         <thead>
           <tr>
             <th>PID</th>
@@ -91,8 +104,99 @@
             <th>Waiting</th>
           </tr>
         </thead>
-        <tbody>
-          </tbody>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="sjf-results" class="algorithm-results" style="display: none">
+      <h2>Shortest Job First (SJF)</h2>
+      <div class="gantt-chart"></div>
+      <h3>Statistics</h3>
+      <p class="avg-wait-time"></p>
+      <p class="avg-turnaround-time"></p>
+      <h3>Process Details</h3>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>PID</th>
+            <th>Arrival</th>
+            <th>Burst</th>
+            <th>Priority</th>
+            <th>Completion</th>
+            <th>Turnaround</th>
+            <th>Waiting</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    
+    <div id="srtf-results" class="algorithm-results" style="display: none">
+      <h2>Shortest Remaining Time First (SRTF)</h2>
+      <div class="gantt-chart"></div>
+      <h3>Statistics</h3>
+      <p class="avg-wait-time"></p>
+      <p class="avg-turnaround-time"></p>
+      <h3>Process Details</h3>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>PID</th>
+            <th>Arrival</th>
+            <th>Burst</th>
+            <th>Priority</th>
+            <th>Completion</th>
+            <th>Turnaround</th>
+            <th>Waiting</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="priority-results" class="algorithm-results" style="display: none">
+      <h2>Priority (Non-Preemptive)</h2>
+      <div class="gantt-chart"></div>
+      <h3>Statistics</h3>
+      <p class="avg-wait-time"></p>
+      <p class="avg-turnaround-time"></p>
+      <h3>Process Details</h3>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>PID</th>
+            <th>Arrival</th>
+            <th>Burst</th>
+            <th>Priority</th>
+            <th>Completion</th>
+            <th>Turnaround</th>
+            <th>Waiting</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    
+    <div id="rr-results" class="algorithm-results" style="display: none">
+      <h2>Round Robin (RR)</h2>
+      <div class="gantt-chart"></div>
+      <h3>Statistics</h3>
+      <p class="avg-wait-time"></p>
+      <p class="avg-turnaround-time"></p>
+      <h3>Process Details</h3>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>PID</th>
+            <th>Arrival</th>
+            <th>Burst</th>
+            <th>Priority</th>
+            <th>Completion</th>
+            <th>Turnaround</th>
+            <th>Waiting</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
       </table>
     </div>
 

@@ -6,6 +6,8 @@
   --secondary-color: #f8f9fa;
   --border-color: #ddd;
   --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --success-color: #28a745;
+  --success-bg: #e9f7ec;
 }
 
 body {
@@ -21,6 +23,11 @@ h1,
 h2,
 h3 {
   color: var(--primary-color);
+}
+
+h2 {
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 5px;
 }
 
 .container {
@@ -75,6 +82,14 @@ button[type='submit'] {
   width: 100%;
 }
 
+#compare-button {
+  background-color: var(--success-color);
+  font-weight: bold;
+}
+#compare-button:hover {
+  background-color: #218838;
+}
+
 #reset-button {
   background-color: #dc3545;
 }
@@ -110,15 +125,30 @@ thead {
   gap: 15px;
 }
 
-#results-container {
+#recommendation-box {
+  background: var(--success-bg);
+  border: 1px solid var(--success-color);
+  border-radius: 8px;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+#recommendation-box h2 {
+  color: var(--success-color);
+}
+#recommendation-box strong {
+  color: #333;
+  font-size: 1.1em;
+}
+
+.algorithm-results {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: var(--shadow);
-  display: none;
+  margin-bottom: 20px;
 }
 
-#gantt-chart {
+.gantt-chart {
   display: flex;
   height: 50px;
   border: 1px solid var(--border-color);
@@ -126,6 +156,16 @@ thead {
   overflow: hidden;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+/* --- ANIMATION --- */
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 .gantt-block {
@@ -138,9 +178,14 @@ thead {
   border-right: 1px solid #fff;
   box-sizing: border-box;
   text-align: center;
+  
+  /* Animation properties */
+  transform-origin: left;
+  animation: grow 0.5s ease-out forwards;
 }
 
 .gantt-block-idle {
   background-color: #ccc;
   color: #333;
+  animation: none; /* No animation for idle blocks */
 }
